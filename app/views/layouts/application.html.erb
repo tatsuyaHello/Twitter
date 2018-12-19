@@ -7,11 +7,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/livestamp/1.1.0/livestamp.js"></script>
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
 
   <body>
     <header>
       <div class="header-logo">
+        <span class="fa fa-home "></span>
         <% if @current_user %>
           <%= link_to("TweetApp", "/posts/index") %>
         <% else %>
@@ -21,36 +30,44 @@
       <ul class="header-menus">
         <% if @current_user %>
           <li>
+            <span class="fa fa-user-circle" aria-hidden="true"></span>
             <%= link_to(@current_user.name, "/users/#{@current_user.id}")%>
           </li>
 
           <li>
+            <span class="fa fa-list-alt" aria-hidden="true"></span>
             <%= link_to("Post list", "/posts/index") %>
           </li>
 
           <li>
             <!-- ここに新規投稿ページへのリンクを追加してください -->
+            <span class="fa fa-send" aria-hidden="true"></span>
             <%= link_to("New post", "/posts/new") %>
           </li>
 
           <li>
+            <span class="fa fa-group" aria-hidden="true"></span>
             <%= link_to("User list", "/users/index") %>
           </li>
 
           <li>
+            <span class="fa fa-sign-out" aria-hidden="true"></span>
             <%= link_to("Logout", "/logout", {method: :post}) %>
           </li>
 
         <% else %>
           <li>
+            <span class="fa fa-question-circle-o" aria-hidden="true"></span>
             <%= link_to("What is tweeterApp", "/about") %>
           </li>
 
           <li>
+            <span class="fa fa-registered "></span>
             <%= link_to("Signup", "/signup") %>
           </li>
 
           <li>
+            <span class="fa fa-sign-in" aria-hidden="true"></span>
             <%= link_to("Login", "/login") %>
           </li>
         <% end %>
